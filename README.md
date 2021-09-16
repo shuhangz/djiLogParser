@@ -19,7 +19,8 @@
  ```
 
  ### Visulization of flight logs
- TODO
+ 1. Get the CsvView app through <https://datfile.net/CsvView/intro.html>
+ 1. Open the app and select the txt log file from the RC 
 
 
 ## Reference Documentation
