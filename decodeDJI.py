@@ -71,9 +71,9 @@ crc64Table = [0x0,0x7AD870C830358979, 0xF5B0E190606B12F2, 0x8F689158505E9B8B,0xC
 
 
 
-def write2csv():
+def write2csv(logfile_name):
 	root = os.getcwd()
-	dir = os.path.join(root,"csv_output")
+	dir = os.path.join(root,"csv_output_"+logfile_name)
 	if not os.path.exists(dir):
 		os.makedirs(dir)
 
@@ -302,7 +302,7 @@ def Battery(payload):
 	voltageCell2,\
 	voltageCell3,\
 	voltageCell4,\
-	voltageCell15,\
+	voltageCell5,\
 	voltageCell6,\
 	serialNo,\
 	productDate,\
@@ -669,11 +669,12 @@ def main():
 	root = tk.Tk()
 	root.withdraw()
 	file_path = filedialog.askopenfilename()
+	basename_without_ext = os.path.splitext(os.path.basename(file_path))[0]
 	# decode_file("DJIFlightRecord_2020-10-11_[10-32-57].txt")
 	if os.path.exists(file_path):
 		decode_file(file_path)
 	# print(DJIFrame)
-		write2csv()
+		write2csv(basename_without_ext)
 	else:
 		raise Exception('Oops, file name error')
 if __name__ == '__main__':
